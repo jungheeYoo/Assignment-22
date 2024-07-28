@@ -16,7 +16,7 @@ export default async function ListInfo({
   return (
     <div className={styles.container}>
       <ul className={styles.lists}>
-        {list.books.map((book) => {
+        {list?.books.map((book) => {
           const firstBuyLink = book.buy_links[0];
           return (
             <div className={styles.list} key={book.primary_isbn13}>
