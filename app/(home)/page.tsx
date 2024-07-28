@@ -17,6 +17,7 @@ export default async function HomePage() {
 
   return (
     <div className={styles.container}>
+      <h1 className={styles.title}>THE NEW YORK TIMES BEST SELLER EXPLORER</h1>
       <ul className={styles.lists}>
         {lists.map((list) => (
           <li className={styles.list}>
