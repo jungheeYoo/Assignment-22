@@ -15,7 +15,7 @@ export default async function ListInfo({
   const list = await getList(list_name_encoded);
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>BUSINESS BOOKS</h1>
+      <h1 className={styles.title}>{list.list_name_encoded}</h1>
       <ul className={styles.lists}>
         {list?.books.map((book) => {
           const firstBuyLink = book.buy_links[0];
