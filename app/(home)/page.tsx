@@ -1,4 +1,5 @@
 import List from '../../components/list';
+import styles from '../../styles/home.module.css';
 import { API_URL } from '../contants';
 
 export const metadata = {
@@ -15,14 +16,18 @@ export default async function HomePage() {
   const lists = await getLists();
 
   return (
-    <div>
-      {lists.map((list) => (
-        <List
-          key={list.list_name_encoded}
-          list_name_encoded={list.list_name_encoded}
-          list_name={list.list_name}
-        />
-      ))}
+    <div className={styles.container}>
+      <ul className={styles.lists}>
+        {lists.map((list) => (
+          <li className={styles.list}>
+            <List
+              key={list.list_name_encoded}
+              list_name_encoded={list.list_name_encoded}
+              list_name={list.list_name}
+            />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

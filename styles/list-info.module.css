@@ -1,0 +1,48 @@
+.container {
+  max-width: 90%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 0px 50px 0px;
+  font-size: 1.1rem;
+}
+
+.lists {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+}
+
+.list img,
+.list p {
+  margin-bottom: 10px;
+}
+
+.list p:nth-child(2) {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.list p:nth-child(3) {
+  color: rgb(86, 170, 142);
+  margin-bottom: 35px;
+}
+
+.list a {
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.list a:hover {
+  background-color: azure;
+}

@@ -1,24 +1,20 @@
 import ListInfo, { getList } from '../../../../components/list-info';
 
 interface IParams {
-  params: { list_name_encoded: string };
+  params: { id: string };
 }
 
-export async function generateMetadata({
-  params: { list_name_encoded },
-}: IParams) {
-  const movie = await getList(list_name_encoded);
+export async function generateMetadata({ params: { id } }: IParams) {
+  const movie = await getList(id);
   return {
     list_name: movie.list_name,
   };
 }
 
-export default async function ListDetailPage({
-  params: { list_name_encoded },
-}: IParams) {
+export default async function ListDetailPage({ params: { id } }: IParams) {
   return (
     <div>
-      <ListInfo list_name_encoded={list_name_encoded} />
+      <ListInfo list_name_encoded={id} />
     </div>
   );
 }

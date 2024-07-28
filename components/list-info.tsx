@@ -1,4 +1,5 @@
 import { API_URL_INFO } from '../app/contants';
+import styles from '../styles/list-info.module.css';
 
 export async function getList(list_name_encoded: string) {
   const response = await fetch(`${API_URL_INFO}?name=${list_name_encoded}`);
@@ -13,16 +14,32 @@ export default async function ListInfo({
 }) {
   const list = await getList(list_name_encoded);
   return (
-    <div>
-      {list.books.map((book) => (
-        <div key={book.list_name_encoded}>
-          {book.book_image ? (
-            <img src={book.book_image} alt={book.title} />
-          ) : (
-            <p>No image available</p>
-          )}
-        </div>
-      ))}
+    <div className={styles.container}>
+      <ul className={styles.lists}>
+        {list.books.map((book) => {
+          const firstBuyLink = book.buy_links[0];
+          return (
+            <div className={styles.list} key={book.primary_isbn13}>
+              {book.book_image ? (
+                <img src={book.book_image} alt={book.title} />
+              ) : (
+                <p>No image available</p>
+              )}
+              <p>{book.title}</p>
+              <p>{book.author}</p>
+              <div>
+                <a
+                  href={firstBuyLink.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Buy now &rarr;
+                </a>
+              </div>
+            </div>
+          );
+        })}
+      </ul>
     </div>
   );
 }

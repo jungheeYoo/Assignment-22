@@ -1,0 +1,24 @@
+.nav {
+  margin: 0 auto;
+  padding: 20px 0px;
+  width: 100%;
+  border-radius: 20px;
+  background-color: dimgray;
+  color: white;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 50px;
+}
+
+.nav ul li {
+  list-style: none;
+  transform: none;
+  transition: all 0.3s ease;
+}
+
+.nav ul li:hover {
+  color: aquamarine;
+}
